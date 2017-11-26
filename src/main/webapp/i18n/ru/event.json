@@ -1,0 +1,24 @@
+{
+    "jhipsterrwaApp": {
+        "event" : {
+            "home": {
+                "title": "Events",
+                "createLabel": "Создать новый Event",
+                "createOrEditLabel": "Создать или отредактировать Event"
+            },
+            "created": "Новый Event создан с идентификатором {{ param }}",
+            "updated": "Event обновлен с идентификатором {{ param }}",
+            "deleted": "Event удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Event {{ id }}?"
+            },
+            "detail": {
+                "title": "Event"
+            },
+            "date": "Date",
+            "code": "Code",
+            "location": "Location",
+            "eventAttendance": "Event Attendance"
+        }
+    }
+}

@@ -1,0 +1,31 @@
+
+<div *ngIf="appUser">
+    <h2><span jhiTranslate="jhipsterrwaApp.appUser.detail.title">App User</span> {{appUser.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterrwaApp.appUser.username">Username</span></dt>
+        <dd>
+            <span>{{appUser.username}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterrwaApp.appUser.homeLocation">Home Location</span></dt>
+        <dd>
+            <div *ngIf="appUser.homeLocationId">
+                <a [routerLink]="['/location', appUser.homeLocationId]">{{appUser.homeLocationId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'app-user/'+ appUser.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,23 @@
+{
+    "jhipsterrwaApp": {
+        "eventAttendance" : {
+            "home": {
+                "title": "Event Attendances",
+                "createLabel": "Создать новый Event Attendance",
+                "createOrEditLabel": "Создать или отредактировать Event Attendance"
+            },
+            "created": "Новый Event Attendance создан с идентификатором {{ param }}",
+            "updated": "Event Attendance обновлен с идентификатором {{ param }}",
+            "deleted": "Event Attendance удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Event Attendance {{ id }}?"
+            },
+            "detail": {
+                "title": "Event Attendance"
+            },
+            "date": "Date",
+            "event": "Event",
+            "user": "User"
+        }
+    }
+}

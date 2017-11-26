@@ -1,0 +1,35 @@
+entity Location {
+	name String required,
+    runDayOfWeek Integer required
+}
+
+entity Event {
+	date LocalDate required,
+    code String required,
+}
+
+entity EventAttendance {
+	date LocalDate required
+}
+
+entity AppUser {
+	username String required
+}
+
+relationship OneToMany {
+	Location{event} to Event,
+    Event{eventAttendance} to EventAttendance
+}
+
+relationship OneToOne {
+	EventAttendance{user} to AppUser,
+	AppUser{homeLocation} to Location
+}
+
+dto * with mapstruct
+
+service all with serviceImpl
+
+paginate Location, Event with pagination
+
+paginate EventAttendance with infinite-scroll

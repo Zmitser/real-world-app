@@ -1,0 +1,37 @@
+
+<div *ngIf="eventAttendance">
+    <h2><span jhiTranslate="jhipsterrwaApp.eventAttendance.detail.title">Event Attendance</span> {{eventAttendance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterrwaApp.eventAttendance.date">Date</span></dt>
+        <dd>
+            <span>{{eventAttendance.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterrwaApp.eventAttendance.event">Event</span></dt>
+        <dd>
+            <div *ngIf="eventAttendance.eventId">
+                <a [routerLink]="['/event', eventAttendance.eventId]">{{eventAttendance.eventId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="jhipsterrwaApp.eventAttendance.user">User</span></dt>
+        <dd>
+            <div *ngIf="eventAttendance.userId">
+                <a [routerLink]="['/app-user', eventAttendance.userId]">{{eventAttendance.userId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'event-attendance/'+ eventAttendance.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

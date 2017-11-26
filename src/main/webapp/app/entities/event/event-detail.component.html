@@ -1,0 +1,35 @@
+
+<div *ngIf="event">
+    <h2><span jhiTranslate="jhipsterrwaApp.event.detail.title">Event</span> {{event.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterrwaApp.event.date">Date</span></dt>
+        <dd>
+            <span>{{event.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterrwaApp.event.code">Code</span></dt>
+        <dd>
+            <span>{{event.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterrwaApp.event.location">Location</span></dt>
+        <dd>
+            <div *ngIf="event.locationId">
+                <a [routerLink]="['/location', event.locationId]">{{event.locationId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'event/'+ event.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
